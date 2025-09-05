@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYT En Büyük ve En Küçük Değer Testi</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            background-color: #16213e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #0f3460;
+        }
+
+        h1 {
+            color: #e94560;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-shadow: 0 0 10px #e94560;
+        }
+
+        .question-block {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #0f3460;
+        }
+        .question-block:last-of-type {
+            border-bottom: none;
+        }
+
+        .question-block p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .question-block p strong {
+            color: #e94560;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #0f3460;
+            margin: 8px 0;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        label {
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #e94560;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #c63a50;
+            transform: translateY(-2px);
+        }
+
+        #results {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        #results h2 {
+            color: #16c79a;
+            font-size: 1.8em;
+        }
+
+        /* Feedback Styles */
+        .correct {
+            background-color: #16c79a !important;
+            border-left: 5px solid #00b894;
+        }
+        .correct label {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            background-color: #d63031 !important;
+            border-left: 5px solid #b71c1c;
+        }
+        .incorrect label {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .explanation {
+            background-color: #2c3e50;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #bdc3c7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Sayıların Efendisi Testi</h1>
+        <form id="quizForm">
+            <!-- Soru 1 -->
+            <div class="question-block">
+                <p><strong>Soru 1:</strong> <code>A = {1, 2, 5, 6, 8}</code> kümesinin birbirinden <strong>farklı</strong> a, b ve c elemanları için <code>3a + 2b - 4c</code> ifadesinin alabileceği <strong>en küçük</strong> değer kaçtır?</p>
+                <ul>
+                    <li><label><input type="radio" name="q1" value="a"> -19</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> -21</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> -25</label></li>
+                    <li><label><input type="radio" name="q1" value="d"> 7</label></li>
+                </ul>
+            </div>
+
+            <!-- Soru 2 -->
+            <div class="question-block">
+                <p><strong>Soru 2:</strong> x ve y birbirinden <strong>farklı pozitif tam sayılar</strong> olmak üzere <code>x + y = 20</code> ise, <code>x • y</code> çarpımının alabileceği <strong>en büyük</strong> değer kaçtır?</p>
+                <ul>
+                    <li><label><input type="radio" name="q2" value="a"> 100</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> 99</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> 19</label></li>
+                    <li><label><input type="radio" name="q2" value="d"> 96</label></li>
+                </ul>
+            </div>
+
+            <!-- Soru 3 -->
+            <div class="question-block">
+                <p><strong>Soru 3:</strong> a ve b birer <strong>doğal sayı</strong> olmak üzere <code>a • b = 48</code> ise, <code>a + b</code> toplamının alabileceği <strong>en büyük</strong> değer kaçtır?</p>
+                <ul>
+                    <li><label><input type="radio" name="q3" value="a"> 14</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> 16</label></li>
+                    <li><label><input type="radio" name="q3" value="c"> 19</label></li>
+                    <li><label><input type="radio" name="q3" value="d"> 49</label></li>
+                </ul>
+            </div>
+
+            <!-- Soru 4 -->
+            <div class="question-block">
+                <p><strong>Soru 4:</strong> x ve y <strong>pozitif tam sayılar</strong> olmak üzere, <code>3x + 5y = 75</code> eşitliğini sağlayan kaç farklı (x, y) ikilisi vardır?</p>
+                <ul>
+                    <li><label><input type="radio" name="q4" value="a"> 3</label></li>
+                    <li><label><input type="radio" name="q4" value="b"> 4</label></li>
+                    <li><label><input type="radio" name="q4" value="c"> 5</label></li>
+                    <li><label><input type="radio" name="q4" value="d"> 6</label></li>
+                </ul>
+            </div>
+
+            <!-- Soru 5 -->
+            <div class="question-block">
+                <p><strong>Soru 5:</strong> a, b ve c birbirinden <strong>farklı negatif tam sayılar</strong> olmak üzere <code>a + b + c = -10</code> ise, <code>a • b • c</code> çarpımının alabileceği <strong>en büyük</strong> değer kaçtır? (OMORI'deki gibi, bazen en karanlık düşünceler en büyük sonuca götürür... ya da götürmez mi?)</p>
+                <ul>
+                    <li><label><input type="radio" name="q5" value="a"> -10</label></li>
+                    <li><label><input type="radio" name="q5" value="b"> -12</label></li>
+                    <li><label><input type="radio" name="q5" value="c"> -14</label></li>
+                    <li><label><input type="radio" name="q5" value="d"> -30</label></li>
+                </ul>
+            </div>
+            
+            <button type="submit">Sonuçları Göster</button>
+        </form>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const quizForm = document.getElementById('quizForm');
+        const resultsDiv = document.getElementById('results');
+        const correctAnswers = [
+            { answer: 'c', explanation: 'En küçük değer için pozitif katsayılılara en küçük değerleri (a=1, b=2), negatif katsayılıya en büyük değeri (c=8) vermeliyiz. 3(1) + 2(2) - 4(8) = 3 + 4 - 32 = -25.' },
+            { answer: 'b', explanation: 'Toplamları sabit sayıların çarpımının en büyük olması için sayılar birbirine en yakın seçilir. 10 ve 10 seçerdik ama "farklı" dediği için 9 ve 11 seçiyoruz. 9 * 11 = 99.' },
+            { answer: 'd', explanation: 'Çarpımları sabit sayıların toplamının en büyük olması için sayılar birbirine en uzak seçilir. a=1, b=48 seçeriz. Toplamları 1 + 48 = 49 olur.' },
+            { answer: 'b', explanation: 'İlk değeri bulalım. y=3 için 3x+15=75, 3x=60, x=20. (20,3). Sonra x\'i 5\'er azaltıp, y\'yi 3\'er artırırız: (15,6), (10,9), (5,12). Daha fazla gidemeyiz çünkü x negatif olur. Toplam 4 farklı değer var.' },
+            { answer: 'c', explanation: 'Bu biraz tuzak! Üç negatif sayının çarpımı yine negatiftir. En büyük negatif değeri bulmak için mutlak değerce en küçük çarpımı bulmalıyız. Bu da sayıları birbirinden en uzak seçerek olur (çünkü biri -1\'e çok yakınlaşır). -1, -2 ve -7 seçersek toplam -10 olur. Çarpımları ise (-1)*(-2)*(-7) = -14. Daha yakın sayılar, mesela -2, -3, -5 seçersek çarpım -30 olur, bu daha küçük bir sayıdır.' }
+        ];
+
+        quizForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let score = 0;
+            resultsDiv.innerHTML = ''; 
+
+            const questionBlocks = document.querySelectorAll('.question-block');
+            
+            questionBlocks.forEach((questionBlock, index) => {
+                const questionNumber = index + 1;
+                
+                // Clear previous styles
+                const options = questionBlock.querySelectorAll('li');
+                options.forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                const oldExplanation = questionBlock.querySelector('.explanation');
+                if (oldExplanation) {
+                    oldExplanation.remove();
+                }
+
+                const userAnswerNode = quizForm.querySelector(`input[name="q${questionNumber}"]:checked`);
+                
+                if (userAnswerNode) {
+                    const userAnswer = userAnswerNode.value;
+                    const correctAnswer = correctAnswers[index].answer;
+                    const explanationText = correctAnswers[index].explanation;
+                    
+                    const selectedLi = userAnswerNode.closest('li');
+                    
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                        selectedLi.classList.add('correct');
+                    } else {
+                        selectedLi.classList.add('incorrect');
+                        const correctLi = quizForm.querySelector(`input[name="q${questionNumber}"][value="${correctAnswer}"]`).closest('li');
+                        correctLi.classList.add('correct');
+                    }
+                    
+                    const explanation = document.createElement('p');
+                    explanation.className = 'explanation';
+                    explanation.textContent = 'Açıklama: ' + explanationText;
+                    questionBlock.appendChild(explanation);
+
+                }
+            });
+
+            const resultMessage = document.createElement('h2');
+            resultMessage.textContent = `Sonuç: ${correctAnswers.length} üzerinden ${score} doğru!`;
+            resultsDiv.appendChild(resultMessage);
+            
+            const feedbackMessage = document.createElement('p');
+            if (score === 5) {
+                feedbackMessage.textContent = "Harika! Konuyu kapmışsın, şimdi arkadaşına anlatmaya hazırsın. Tam bir Herrscher of Math oldun!";
+            } else if (score >= 3) {
+                feedbackMessage.textContent = "Çok iyi gidiyorsun! Yanlış yaptığın soruların açıklamalarına bakarak eksiklerini kapatabilirsin. Neredeyse hazır!";
+            } else {
+                feedbackMessage.textContent = "Endişelenme! Bu bir öğrenme süreci. Yanlışların açıklamalarını dikkatlice oku. Hazy Mind'daki gibi, bazen kaybolmak yolun bir parçasıdır. Tekrar denediğinde daha iyi olacak!";
+            }
+            resultsDiv.appendChild(feedbackMessage);
+            
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
